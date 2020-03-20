@@ -26,7 +26,7 @@ public class Knapsack{
         weights[2] = 3;
         vals[2] = 12;
 
-        // Inputting item 4
+        // Inputting item 4 - 25
         weights[3] = 1;
         vals[3] = 7;
 
@@ -115,8 +115,6 @@ public class Knapsack{
 
         int valCheck = knapsack_r(w, weights, vals, len, index + 1);
 
-        //System.out.println("Valcheck = " + valCheck);
-
         // returns the max value of the two
         if (valCheck > (knapsack_r(w - weights[index], weights, vals, len, index + 1) + vals[index])) {
             return valCheck;
@@ -135,17 +133,12 @@ public class Knapsack{
             return 0;
         }
 
-        System.out.println("Passed weights and length checks");
-
         // checks if all weights and values are non-negative
         for (int i = 0; i < len; i++){
-            System.out.println(i + " - weight: " + weights[i] + " & value: " + vals[i]);
             if (weights[i] < 0 || vals[i] < 0){
                 return 0;
             }
         }
-
-        System.out.println("Passed non-negative checks");
 
         return knapsack_r(w, weights, vals, len, 0);
     }
@@ -179,14 +172,6 @@ public class Knapsack{
                 }
             }
         }
-
-        // prints table
-//        for (int i = 1; i <= len; i++){
-//            for (int j = 1; j <= w; j++){
-////                System.out.print(T[i][j] + " ");
-//            }
-//            System.out.print("\n");
-//        }
 
         return T[len][w];
     }
