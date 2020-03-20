@@ -9,8 +9,8 @@
  */
 public class Knapsack{
     public static void main(String[] args){
-        int w = 5;
-        int len = 4;
+        int w = 70;
+        int len = 26;
         int[] weights = new int[len];
         int[] vals = new int[len];
 
@@ -51,11 +51,50 @@ public class Knapsack{
         weights[10] = 1;
         vals[10] = 7;
 
-        weights[3] = 1;
-        vals[3] = 7;
+        weights[11] = 5;
+        vals[11] = 17;
 
-        weights[3] = 1;
-        vals[3] = 7;
+        weights[12] = 3;
+        vals[12] = 27;
+
+        weights[13] = 9;
+        vals[13] = 37;
+
+        weights[14] = 6;
+        vals[14] = 36;
+
+        weights[15] = 11;
+        vals[15] = 42;
+
+        weights[16] = 17;
+        vals[16] = 52;
+
+        weights[17] = 8;
+        vals[17] = 26;
+
+        weights[18] = 16;
+        vals[18] = 43;
+
+        weights[19] = 18;
+        vals[19] = 68;
+
+        weights[20] = 12;
+        vals[20] = 36;
+
+        weights[21] = 17;
+        vals[21] = 52;
+
+        weights[22] = 13;
+        vals[22] = 28;
+
+        weights[23] = 21;
+        vals[23] = 43;
+
+        weights[24] = 14;
+        vals[24] = 59;
+
+        weights[25] = 19;
+        vals[25] = 47;
 
         int maxValue = knapsack(w, weights, vals, len);
         System.out.println("Total Recursive = " + maxValue);
@@ -76,7 +115,7 @@ public class Knapsack{
 
         int valCheck = knapsack_r(w, weights, vals, len, index + 1);
 
-        System.out.println("Valcheck = " + valCheck);
+        //System.out.println("Valcheck = " + valCheck);
 
         // returns the max value of the two
         if (valCheck > (knapsack_r(w - weights[index], weights, vals, len, index + 1) + vals[index])) {
@@ -142,12 +181,12 @@ public class Knapsack{
         }
 
         // prints table
-        for (int i = 1; i <= len; i++){
-            for (int j = 1; j <= w; j++){
-                System.out.print(T[i][j] + " ");
-            }
-            System.out.print("\n");
-        }
+//        for (int i = 1; i <= len; i++){
+//            for (int j = 1; j <= w; j++){
+////                System.out.print(T[i][j] + " ");
+//            }
+//            System.out.print("\n");
+//        }
 
         return T[len][w];
     }
